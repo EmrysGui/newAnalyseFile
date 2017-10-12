@@ -3,7 +3,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAnalyse;
     private TextView tvProgress;
     //手机文件路径
-    private final String FILE_PATH = "/storage/emulated/0/360Download/s19file.txt";
+    private final String FILE_PATH = ".../s19file.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
