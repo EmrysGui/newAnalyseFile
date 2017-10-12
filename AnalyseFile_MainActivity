@@ -1,0 +1,50 @@
+public class MainActivity extends AppCompatActivity {
+
+    private Button btnAnalyse;
+    private TextView tvProgress;
+    //手机文件路径
+    private final String FILE_PATH = "/storage/emulated/0/360Download/s19file.txt";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        initViews();
+        btnAnalyse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                S19FileUtil s19FileUtil = new S19FileUtil(getApplicationContext(), tvProgress);
+                s19FileUtil.readWordsFromFile(FILE_PATH);
+            }
+        });
+    }
+
+    private void initViews() {
+        btnAnalyse = (Button) findViewById(R.id.btn_analyse);
+        tvProgress = (TextView) findViewById(R.id.tv_progress);
+    }
+}
+
+
+//页面布局文件
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <Button
+        android:id="@+id/btn_analyse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="解析数据"
+        android:textColor="@android:color/black" />
+    <TextView
+        android:id="@+id/tv_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
