@@ -112,7 +112,7 @@ public class S19FileUtil {
             //获取文件内容的单独一行s19StrLineStr
             String s19StrLineStr = s19LineStr[i];
             if (s19StrLineStr != null) {
-//                //开始进行判断（头，也就是类型）（头两个字节）
+              //开始进行判断（头，也就是类型）（头两个字节）
                 String s19LineHead = s19StrLineStr.substring(0, 2);
                 if ("S0".equals(s19LineHead)) {
                     //先把这一行的数据设置到S19LineBean对象中
@@ -121,7 +121,7 @@ public class S19FileUtil {
                     //类型
                     s19LineBean.setMotLineRecordType("S0");
                     //这个S0是要丢弃的数据
-                    s19LineBeanDataList.add(s19LineBean);
+                   // s19LineBeanDataList.add(s19LineBean);
                 } else if ("S1".equals(s19LineHead)) {
                     //S1:  地址为2字节的记录。
                     s19LineBean.setMotLineRecordType("S1");
@@ -172,22 +172,22 @@ public class S19FileUtil {
                     s19LineBeanDataList.add(s19LineBean);
                 } else if ("S5".equals(s19LineHead)) {
                     s19LineBean.setMotLineRecordType("S5");
-                    s19LineBeanDataList.add(s19LineBean);
+                    //s19LineBeanDataList.add(s19LineBean);
                 } else if ("S7".equals(s19LineHead)) {
                     s19LineBean.setMotLineRecordType("S7");
                     s19LineBean.setMotLineRecordLength(s19StrLineStr.substring(2, 4));
                     s19LineBean.setMotLineRecordMemoryAddr(s19StrLineStr.substring(4, 12));
-                    s19LineBeanDataList.add(s19LineBean);
+                    //s19LineBeanDataList.add(s19LineBean);
                 } else if ("S8".equals(s19LineHead)) {
                     s19LineBean.setMotLineRecordType("S8");
                     s19LineBean.setMotLineRecordLength(s19StrLineStr.substring(2, 4));
                     s19LineBean.setMotLineRecordMemoryAddr(s19StrLineStr.substring(4, 10));
-                    s19LineBeanDataList.add(s19LineBean);
+                   // s19LineBeanDataList.add(s19LineBean);
                 } else if ("S9".equals(s19LineHead)) {
                     s19LineBean.setMotLineRecordType("S9");
                     s19LineBean.setMotLineRecordLength(s19StrLineStr.substring(2, 4));
                     s19LineBean.setMotLineRecordMemoryAddr(s19StrLineStr.substring(4, 8));
-                    s19LineBeanDataList.add(s19LineBean);
+                  //  s19LineBeanDataList.add(s19LineBean);
                 } else {
                     Toast.makeText(context, "S19 File Error (A) !", Toast.LENGTH_SHORT).show();
                 }
